@@ -1,0 +1,140 @@
+Listening on wlp0s20f3
+   # Host name (port/service if enabled)            last 2s   last 10s   last 40s cumulative
+--------------------------------------------------------------------------------------------
+   1 pablo-dell                               =>       107B       107B       107B       214B
+     192.168.100.149                          <=        81B        81B        81B       162B
+   2 pablo-dell                               =>        30B        30B        30B        61B
+     192.178.50.42                            <=        26B        26B        26B        53B
+--------------------------------------------------------------------------------------------
+Total send rate:                                       138B       138B       138B
+Total receive rate:                                    108B       108B       108B
+Total send and receive rate:                           245B       245B       245B
+--------------------------------------------------------------------------------------------
+Peak rate (sent/received/total):                       137B       107B       245B
+Cumulative (sent/received/total):                      275B       215B       490B
+============================================================================================
+
+   # Host name (port/service if enabled)            last 2s   last 10s   last 40s cumulative
+--------------------------------------------------------------------------------------------
+   1 192.168.100.255                          =>         0B         0B         0B         0B
+     192.168.100.3                            <=     1,26KB       643B       643B     2,51KB
+   2 pablo-dell                               =>       587B       294B       294B     1,15KB
+     151.101.194.137                          <=       411B       206B       206B       822B
+   3 pablo-dell                               =>       315B       158B       158B       630B
+     sjodns3.ice.co.cr                        <=       547B       274B       274B     1,07KB
+   4 192.168.100.255                          =>         0B         0B         0B         0B
+     192.168.100.2                            <=       312B       156B       156B       624B
+   5 pablo-dell                               =>         0B        54B        54B       214B
+     192.168.100.149                          <=         0B        40B        40B       162B
+   6 255.255.255.255                          =>         0B         0B         0B         0B
+     192.168.100.65                           <=       108B        54B        54B       216B
+   7 255.255.255.255                          =>         0B         0B         0B         0B
+     192.168.100.172                          <=       108B        54B        54B       216B
+   8 255.255.255.255                          =>         0B         0B         0B         0B
+     192.168.100.231                          <=       108B        54B        54B       216B
+   9 255.255.255.255                          =>         0B         0B         0B         0B
+     192.168.100.233                          <=       108B        54B        54B       216B
+  10 pablo-dell                               =>        30B        15B        15B        61B
+     mia07s60-in-f10.1e100.net                <=        74B        37B        37B       147B
+--------------------------------------------------------------------------------------------
+Total send rate:                                       932B       535B       535B
+Total receive rate:                                  2,99KB     1,55KB     1,55KB
+Total send and receive rate:                         3,90KB     2,07KB     2,07KB
+--------------------------------------------------------------------------------------------
+Peak rate (sent/received/total):                       932B     2,99KB     3,90KB
+Cumulative (sent/received/total):                    2,09KB     6,19KB     8,28KB
+============================================================================================
+
+   # Host name (port/service if enabled)            last 2s   last 10s   last 40s cumulative
+--------------------------------------------------------------------------------------------
+   1 pablo-dell                               =>       742B       352B       352B     2,07KB
+     sjodns3.ice.co.cr                        <=     1,37KB       651B       651B     3,81KB
+   2 192.168.100.255                          =>         0B         0B         0B         0B
+     192.168.100.3                            <=         0B       429B       429B     2,51KB
+   3 pablo-dell                               =>       248B        83B        83B       497B
+     ec2-34-193-255-5.compute-1.amazonaws.co  <=       754B       251B       251B     1,47KB
+   4 pablo-dell                               =>         0B       196B       196B     1,15KB
+     151.101.194.137                          <=         0B       137B       137B       822B
+   5 pablo-dell                               =>       196B        65B        65B       391B
+     ec2-52-200-140-51.compute-1.amazonaws.c  <=       322B       107B       107B       643B
+   6 192.168.100.255                          =>         0B         0B         0B         0B
+     192.168.100.2                            <=         0B       104B       104B       624B
+   7 pablo-dell                               =>       224B        75B        75B       448B
+     ec2-107-21-57-169.compute-1.amazonaws.c  <=         0B         0B         0B         0B
+   8 pablo-dell                               =>       107B        36B        36B       214B
+     192.168.100.111                          <=        81B        27B        27B       162B
+   9 pablo-dell                               =>         0B        36B        36B       214B
+     192.168.100.149                          <=         0B        27B        27B       162B
+  10 pablo-dell                               =>        79B        26B        26B       158B
+     ec2-3-213-4-111.compute-1.amazonaws.com  <=        54B        18B        18B       108B
+--------------------------------------------------------------------------------------------
+Total send rate:                                     1,75KB       952B       952B
+Total receive rate:                                  2,81KB     1,97KB     1,97KB
+Total send and receive rate:                         4,56KB     2,90KB     2,90KB
+--------------------------------------------------------------------------------------------
+Peak rate (sent/received/total):                     1,75KB     2,99KB     4,56KB
+Cumulative (sent/received/total):                    5,58KB     11,8KB     17,4KB
+============================================================================================
+
+   # Host name (port/service if enabled)            last 2s   last 10s   last 40s cumulative
+--------------------------------------------------------------------------------------------
+   1 pablo-dell                               =>     2,05KB       534B       534B     4,17KB
+     192.178.50.42                            <=     1,59KB       414B       414B     3,23KB
+   2 pablo-dell                               =>       166B       306B       306B     2,39KB
+     sjodns3.ice.co.cr                        <=       266B       555B       555B     4,33KB
+   3 pablo-dell                               =>       613B       300B       300B     2,34KB
+     151.101.194.137                          <=       294B       176B       176B     1,38KB
+   4 192.168.100.255                          =>         0B         0B         0B         0B
+     192.168.100.3                            <=       312B       400B       400B     3,12KB
+   5 192.168.100.255                          =>         0B         0B         0B         0B
+     192.168.100.2                            <=     1,03KB       341B       341B     2,67KB
+   6 pablo-dell                               =>         0B        62B        62B       497B
+     ec2-34-193-255-5.compute-1.amazonaws.co  <=         0B       188B       188B     1,47KB
+   7 pablo-dell                               =>         0B        49B        49B       391B
+     ec2-52-200-140-51.compute-1.amazonaws.c  <=         0B        80B        80B       643B
+   8 pablo-dell                               =>        26B        62B        62B       500B
+     ec2-107-21-57-169.compute-1.amazonaws.c  <=       238B        60B        60B       477B
+   9 pablo-dell                               =>       158B        59B        59B       474B
+     ec2-3-213-4-111.compute-1.amazonaws.com  <=       108B        40B        40B       324B
+  10 pablo-dell                               =>       107B        54B        54B       428B
+     192.168.100.149                          <=        81B        40B        40B       324B
+--------------------------------------------------------------------------------------------
+Total send rate:                                     3,18KB     1,49KB     1,49KB
+Total receive rate:                                  4,09KB     2,50KB     2,50KB
+Total send and receive rate:                         7,27KB     3,99KB     3,99KB
+--------------------------------------------------------------------------------------------
+Peak rate (sent/received/total):                     3,18KB     4,09KB     7,27KB
+Cumulative (sent/received/total):                    11,9KB     20,0KB     31,9KB
+============================================================================================
+
+   # Host name (port/service if enabled)            last 2s   last 10s   last 40s cumulative
+--------------------------------------------------------------------------------------------
+   1 pablo-dell                               =>         0B       427B       427B     4,17KB
+     192.178.50.42                            <=         0B       331B       331B     3,23KB
+   2 pablo-dell                               =>         0B       245B       245B     2,39KB
+     sjodns3.ice.co.cr                        <=         0B       444B       444B     4,33KB
+   3 192.168.100.255                          =>         0B         0B         0B         0B
+     192.168.100.3                            <=       412B       402B       402B     3,92KB
+   4 pablo-dell                               =>         0B       240B       240B     2,34KB
+     151.101.194.137                          <=         0B       141B       141B     1,38KB
+   5 192.168.100.255                          =>         0B         0B         0B         0B
+     192.168.100.2                            <=         0B       273B       273B     2,67KB
+   6 pablo-dell                               =>       196B        78B        78B       782B
+     ec2-52-200-140-51.compute-1.amazonaws.c  <=       348B       134B       134B     1,31KB
+   7 pablo-dell                               =>         0B        50B        50B       497B
+     ec2-34-193-255-5.compute-1.amazonaws.co  <=         0B       151B       151B     1,47KB
+   8 pablo-dell                               =>       224B        95B        95B       948B
+     ec2-107-21-57-169.compute-1.amazonaws.c  <=         0B        48B        48B       477B
+   9 pablo-dell                               =>       162B        80B        80B       798B
+     ec2-3-213-4-111.compute-1.amazonaws.com  <=        78B        48B        48B       480B
+  10 pablo-dell                               =>         0B        43B        43B       428B
+     192.168.100.149                          <=         0B        32B        32B       324B
+--------------------------------------------------------------------------------------------
+Total send rate:                                       582B     1,31KB     1,31KB
+Total receive rate:                                  1,24KB     2,25KB     2,25KB
+Total send and receive rate:                         1,81KB     3,55KB     3,55KB
+--------------------------------------------------------------------------------------------
+Peak rate (sent/received/total):                     3,18KB     4,09KB     7,27KB
+Cumulative (sent/received/total):                    13,1KB     22,5KB     35,5KB
+============================================================================================
+
