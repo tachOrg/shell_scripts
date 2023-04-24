@@ -88,6 +88,9 @@ while true; do
   usage_cpu_steal=$(echo "scale=0; (${just_cpu_steal}+0.5)/1" | bc)
   unusage_cpu_steal=$((100 - usage_cpu_steal))
 
+  # Convert into JSON object
+  json_stats="{ \"cpu_user\": \"$cpu_user\", \"cpu_sys\": \"$cpu_system\", \"cpu_niced\": \"$cpu_low_priority\", \"cpu_idle\": \"$cpu_idle\", \"cpu_iow\": \"$cpu_iowait\", \"cpu_hi\": \"$cpu_hardware_i\", \"cpu_si\": \"$cpu_software_i\", \"cpu_steal\": \"$cpu_steal\" }"
+  printf '%s\n' "$json_stats"
 
   echo -e "\n================="
   echo "Cpu(s) percentage usage by process type: $cpus"
