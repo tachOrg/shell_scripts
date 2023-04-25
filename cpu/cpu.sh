@@ -88,9 +88,23 @@ while true; do
   usage_cpu_steal=$(echo "scale=0; (${just_cpu_steal}+0.5)/1" | bc)
   unusage_cpu_steal=$((100 - usage_cpu_steal))
 
+  stream_name="cpu_stats"
+
   # Convert into JSON object
-  json_stats="{ \"cpu_user\": \"$cpu_user\", \"cpu_sys\": \"$cpu_system\", \"cpu_niced\": \"$cpu_low_priority\", \"cpu_idle\": \"$cpu_idle\", \"cpu_iow\": \"$cpu_iowait\", \"cpu_hi\": \"$cpu_hardware_i\", \"cpu_si\": \"$cpu_software_i\", \"cpu_steal\": \"$cpu_steal\" }"
+  json_stats="{ \"date\": \"$date_time\", \"cpu_user\": \"$cpu_user\", \"cpu_sys\": \"$cpu_system\", \"cpu_niced\": \"$cpu_low_priority\", \"cpu_idle\": \"$cpu_idle\", \"cpu_iow\": \"$cpu_iowait\", \"cpu_hi\": \"$cpu_hardware_i\", \"cpu_si\": \"$cpu_software_i\", \"cpu_steal\": \"$cpu_steal\" }"
   printf '%s\n' "$json_stats"
+
+  # Send data to kinesis
+  response=$(aws kinesis put-record --stream-name "$stream_name" --partition-key "$date_time" --data "$json_stats" 2>&1)
+  
+  # Check if response contains "SequenceNumber" string
+  if echo "$response" | grep -q "SequenceNumber"; then
+    # Response contains "SequenceNumber" string - Ok
+    echo -e "\033[32mSuccesfully data sent to AWS Kinesis\033[0m - Response: $response"
+  else
+    # Response doesn't contains "SequenceNumber" string - Error
+    echo -e "\e[31mError at send data to AWS Kinesis\033[0m - Error: $response"
+  fi
 
   echo -e "\n================="
   echo "Cpu(s) percentage usage by process type: $cpus"
