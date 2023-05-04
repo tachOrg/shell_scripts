@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<movies>
+    <movie>
+        <title>Split</title>
+        <main_character>Kevin Wendell Crumb</main_character>
+        <author>James McAvoy</author>
+        <year>2016</year>
+    </movie>
+    <movie>
+        <title>Die Hard</title>
+        <main_character>John McClane</main_character>
+        <author>Bruce Willis</author>
+        <year>1988</year>
+    </movie>
+</movies>
