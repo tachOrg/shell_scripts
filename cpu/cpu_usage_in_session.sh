@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# Get total cores of CPU
 total_cores=$(grep -c ^processor /proc/cpuinfo)
 cores=$(($total_cores - 1))
 
