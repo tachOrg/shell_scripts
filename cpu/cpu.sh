@@ -139,28 +139,3 @@ while true; do
 
   sleep 1
 done
-
-
-# sum=$(top -bn1 | grep "Cpu(s)" | awk -v n=$(nproc) '{sum=0; for(i=2;i<=n+1;i++){sum+=$i}; printf "%.2f%%\n", sum}')
-# just_one_register_top_with_active_process=$(top -ibn1)
-
-# # 1 3 - 3 segundos
-# percentage=$(vmstat 1 3 | tail -1 | awk '{printf 100 - $15"%\n"}')
-
-cpus2=$(top -bn1 | awk '/Cpu/')
-# Si se toma este %Cpu(s) en el id (idle) y se le resta a 100 se obtiene el valor de test2
-only_top=$(top -n 1)
-test2=$(top -bn1 | awk '/Cpu/ { print $2}')c
-
-
-# echo "Load value: $only_load"
-# echo "CPU Usage: $cpu"
-# echo "CPUs: $cpus"
-# echo "Sum: $sum"
-# echo "Percentage: $percentage"
-# echo "One top register: $just_one_register_top_with_active_process"
-# echo "//////////////////////////////"
-# echo "//////////////////////////////"
-# echo "Test 1: $only_top"
-# echo "CPUs 2: $cpus2"
-# echo "Test 2: $test2"
