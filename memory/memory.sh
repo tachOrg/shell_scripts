@@ -60,9 +60,19 @@ while true; do
   echo -e "============================"
 
   stream_name="cpu_stats"
+  memory_string="memory"
 
   # Convert into JSON object
-  json_stats="{ \"date\": \"$date_time\", \"type\": "memory", \"total_memory\": \"$total_memory\", \"used_memory\": \"$used_memory_percentage\", \"free_memory\": \"$free_memory_percentage\", \"shared_memory\": \"$shared_memory_percentage\", \"buff_cache_memory\": \"$buff_cache_memory_percentage\", \"available_memory\": \"$available_memory_percentage\" }"
+  json_stats="{ 
+    \"date\": \"$date_time\", 
+    \"type\": \"$memory_string\", 
+    \"total_memory\": \"$total_memory\", 
+    \"used_memory\": \"$used_memory_percentage\", 
+    \"free_memory\": \"$free_memory_percentage\", 
+    \"shared_memory\": \"$shared_memory_percentage\", 
+    \"buff_cache_memory\": \"$buff_cache_memory_percentage\", 
+    \"available_memory\": \"$available_memory_percentage\" 
+  }"
   printf '%s\n' "$json_stats"
 
   # Send data to kinesis
