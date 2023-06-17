@@ -1,5 +1,12 @@
 #!/bin/bash
 
+# Constants
+RABBITMQ_HOST="localhost"
+RABBITMQ_PORT="5672"
+RABBITMQ_USERNAME="guest"
+RABBITMQ_PASSWORD="guest"
+QUEUE_NAME="stats"
+
 # Functions
 # Print stats of arguments passed
 function print_stat() {
@@ -31,8 +38,27 @@ function print_graph_bar() {
     printf "\n"
 }
 
+# Create a queue if doesn't exists
+function create_queue() {
+  local queue_name="$1"
+  rabbitmqadmin declare queue name="$queue_name"
+}
+
+# Get queue values
+function consume_queue() {
+  local queue_name="$1"
+  rabbitmqadmin get queue="$queue_name" requeue=false
+}
+
+function send_message() {
+  local queue_name="$1"
+  local message="$2"
+  rabbitmqadmin publish routing_key="" payload="$message" exchange="" queue="$queue_name"
+}
+
 while true; do
   clear
+  create_queue "$QUEUE_NAME"
   
   # Get current date and time
   # 'cut' property is used to extract the number of characters given in value
@@ -95,7 +121,7 @@ while true; do
   printf '%s\n' "$json_stats"
 
   # Send data to kinesis
-  response=$(aws kinesis put-record --stream-name "$stream_name" --partition-key "$date_time" --data "$json_stats" 2>&1)
+  response=$(timeout 1s aws kinesis put-record --stream-name "$stream_name" --partition-key "$date_time" --data "$json_stats" 2>&1)
   
   # Check if response contains "SequenceNumber" string
   if echo "$response" | grep -q "SequenceNumber"; then
