@@ -41,7 +41,13 @@ function print_graph_bar() {
 # Create a queue if doesn't exists
 function create_queue() {
   local queue_name="$1"
-  rabbitmqadmin declare queue name="$queue_name"
+  output=$(rabbitmqadmin declare queue name="$queue_name" 2>&1)
+  if [ $? -ne 0 ]; then
+    echo -e "\e[31mError creating queue:\033[0m $output"
+  else
+    echo -e "\033[32mQueue created successfully. Response:\033[0m $output"
+  fi
+  sleep 1
 }
 
 # Get queue values
@@ -53,12 +59,19 @@ function consume_queue() {
 function send_message() {
   local queue_name="$1"
   local message="$2"
-  rabbitmqadmin publish routing_key="" payload="$message" exchange="" queue="$queue_name"
+  output=$(rabbitmqadmin publish exchange=amq.default routing_key="$queue_name" payload="$message" 2>&1)
+  if [ $? -ne 0 ]; then
+    echo -e "\e[31mError sending message:\033[0m $output"
+  else
+    echo -e "\033[32mMessage queued. Response:\033[0m $output"
+  fi
 }
+
+create_queue "$QUEUE_NAME" &
+wait
 
 while true; do
   clear
-  create_queue "$QUEUE_NAME"
   
   # Get current date and time
   # 'cut' property is used to extract the number of characters given in value
@@ -119,6 +132,9 @@ while true; do
   # Convert into JSON object
   json_stats="{ \"date\": \"$date_time\", \"cpu_user\": \"$cpu_user\", \"cpu_sys\": \"$cpu_system\", \"cpu_niced\": \"$cpu_low_priority\", \"cpu_idle\": \"$cpu_idle\", \"cpu_iow\": \"$cpu_iowait\", \"cpu_hi\": \"$cpu_hardware_i\", \"cpu_si\": \"$cpu_software_i\", \"cpu_steal\": \"$cpu_steal\" }"
   printf '%s\n' "$json_stats"
+
+  send_message "$QUEUE_NAME" "$json_stats" &
+  wait
 
   # Send data to kinesis
   response=$(timeout 1s aws kinesis put-record --stream-name "$stream_name" --partition-key "$date_time" --data "$json_stats" 2>&1)
