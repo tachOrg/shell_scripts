@@ -29,15 +29,15 @@ while true; do
 
   total_memory=$(echo "$physical_memory" | awk '{print $2}')
   used_memory=$(echo "$physical_memory" | awk '{print $3}')
-  used_memory_percentage=$(echo "scale=4; ($used_memory/$total_memory) * 100" | bc | sed 's/$/%/')
+  used_memory_percentage=$(echo "scale=4; ($used_memory/$total_memory) * 100" | bc)
   free_memory=$(echo "$physical_memory" | awk '{print $4}')
-  free_memory_percentage=$(echo "scale=4; ($free_memory/$total_memory) * 100" | bc | sed 's/$/%/')
+  free_memory_percentage=$(echo "scale=4; ($free_memory/$total_memory) * 100" | bc)
   shared_memory=$(echo "$physical_memory" | awk '{print $5}')
-  shared_memory_percentage=$(echo "scale=4; ($shared_memory/$total_memory) * 100" | bc | sed 's/$/%/')
+  shared_memory_percentage=$(echo "scale=4; ($shared_memory/$total_memory) * 100" | bc)
   buff_cache_memory=$(echo "$physical_memory" | awk '{print $6}')
-  buff_cache_memory_percentage=$(echo "scale=4; ($buff_cache_memory/$total_memory) * 100" | bc | sed 's/$/%/')
+  buff_cache_memory_percentage=$(echo "scale=4; ($buff_cache_memory/$total_memory) * 100" | bc)
   available_memory=$(echo "$physical_memory" | awk '{print $7}')
-  available_memory_percentage=$(echo "scale=4; ($available_memory/$total_memory) * 100" | bc | sed 's/$/%/')
+  available_memory_percentage=$(echo "scale=4; ($available_memory/$total_memory) * 100" | bc)
 
   echo -e "\n=========================="
   echo -e "\033[34mPhysical general memory:\033[0m \n$physical_memory"
