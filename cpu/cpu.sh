@@ -48,43 +48,43 @@ while true; do
   max_cpu_percentage=100.0
 
   just_cpu_user=$(echo $cpus | awk '{print $2}' | tr ',' '.')
-  cpu_user=$(echo $cpus | awk '{print $2}')
+  cpu_user=$(echo $cpus | awk '{print $2}' | tr ',' '.')
   usage_cpu_user=$(echo "scale=0; (${just_cpu_user}+0.5)/1" | bc)
   unusage_cpu_user=$((100 - usage_cpu_user))
 
   just_cpu_system=$(echo $cpus | awk '{print $4}' | tr ',' '.')
-  cpu_system=$(echo $cpus | awk '{print $4}')
+  cpu_system=$(echo $cpus | awk '{print $4}' | tr ',' '.')
   usage_cpu_system=$(echo "scale=0; (${just_cpu_system}+0.5)/1" | bc)
   unusage_cpu_system=$((100 - usage_cpu_system))
 
   just_cpu_low_priority=$(echo $cpus | awk '{print $6}' | tr ',' '.')
-  cpu_low_priority=$(echo $cpus | awk '{print $6}' | sed 's/$/%/')
+  cpu_low_priority=$(echo $cpus | awk '{print $6}' | tr ',' '.')
   usage_cpu_low_priority=$(echo "scale=0; (${just_cpu_low_priority}+0.5)/1" | bc)
   unusage_cpu_low_priority=$((100 - usage_cpu_low_priority))
 
   just_cpu_idle=$(echo $cpus | awk '{print $8}' | tr ',' '.')
-  cpu_idle=$(echo $cpus | awk '{print $8}' | sed 's/$/%/')
+  cpu_idle=$(echo $cpus | awk '{print $8}' | tr ',' '.')
   usage_cpu_idle=$(echo "scale=0; (${just_cpu_idle}+0.5)/1" | bc)
   unusage_cpu_idle=$((100 - usage_cpu_idle))
 
   just_cpu_iowait=$(echo $cpus | awk '{print $10}' | tr ',' '.')
-  cpu_iowait=$(echo $cpus | awk '{print $10}' | sed 's/$/%/')
+  cpu_iowait=$(echo $cpus | awk '{print $10}' | tr ',' '.')
   usage_cpu_iowait=$(echo "scale=0; (${just_cpu_iowait}+0.5)/1" | bc)
   unusage_cpu_iowait=$((100 - usage_cpu_iowait))
 
   just_cpu_hardware_i=$(echo $cpus | awk '{print $12}' | tr ',' '.')
-  cpu_hardware_i=$(echo $cpus | awk '{print $12}' | sed 's/$/%/')
+  cpu_hardware_i=$(echo $cpus | awk '{print $12}' | tr ',' '.')
   usage_cpu_hardware_i=$(echo "scale=0; (${just_cpu_hardware_i}+0.5)/1" | bc)
   unusage_cpu_hardware_i=$((100 - usage_cpu_hardware_i))
 
   just_cpu_software_i=$(echo $cpus | awk '{print $14}' | tr ',' '.')
-  cpu_software_i=$(echo $cpus | awk '{print $14}' | sed 's/$/%/')
+  cpu_software_i=$(echo $cpus | awk '{print $14}' | tr ',' '.')
   usage_cpu_software_i=$(echo "scale=0; (${just_cpu_software_i}+0.5)/1" | bc)
   unusage_cpu_software_i=$((100 - usage_cpu_software_i))
 
 
   just_cpu_steal=$(echo $cpus | awk '{print $16}' | tr ',' '.')
-  cpu_steal=$(echo $cpus | awk '{print $16}' | sed 's/$/%/')
+  cpu_steal=$(echo $cpus | awk '{print $16}' | tr ',' '.')
   usage_cpu_steal=$(echo "scale=0; (${just_cpu_steal}+0.5)/1" | bc)
   unusage_cpu_steal=$((100 - usage_cpu_steal))
 
