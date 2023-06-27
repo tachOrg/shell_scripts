@@ -107,7 +107,7 @@ while true; do
   printf '%s\n' "$json_stats"
 
   # Send data to kinesis
-  response=$(aws kinesis put-record --stream-name "$stream_name" --partition-key "$date_time" --data "$json_stats" 2>&1)
+  response=$(timeout 1s aws kinesis put-record --stream-name "$stream_name" --partition-key "$date_time" --data "$json_stats" 2>&1)
   
   # Check if response contains "SequenceNumber" string
   if echo "$response" | grep -q "SequenceNumber"; then
