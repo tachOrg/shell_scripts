@@ -89,9 +89,21 @@ while true; do
   unusage_cpu_steal=$((100 - usage_cpu_steal))
 
   stream_name="cpu_stats"
+  cpu_string="cpu"
 
   # Convert into JSON object
-  json_stats="{ \"date\": \"$date_time\", \"cpu_user\": \"$cpu_user\", \"cpu_sys\": \"$cpu_system\", \"cpu_niced\": \"$cpu_low_priority\", \"cpu_idle\": \"$cpu_idle\", \"cpu_iow\": \"$cpu_iowait\", \"cpu_hi\": \"$cpu_hardware_i\", \"cpu_si\": \"$cpu_software_i\", \"cpu_steal\": \"$cpu_steal\" }"
+  json_stats="{ 
+    \"date\": \"$date_time\", 
+    \"type\": \"$cpu_string\",
+    \"cpu_user\": \"$cpu_user\", 
+    \"cpu_sys\": \"$cpu_system\", 
+    \"cpu_niced\": \"$cpu_low_priority\", 
+    \"cpu_idle\": \"$cpu_idle\", 
+    \"cpu_iow\": \"$cpu_iowait\", 
+    \"cpu_hi\": \"$cpu_hardware_i\", 
+    \"cpu_si\": \"$cpu_software_i\", 
+    \"cpu_steal\": \"$cpu_steal\" 
+  }"
   printf '%s\n' "$json_stats"
 
   # Send data to kinesis
