@@ -48,12 +48,12 @@ while true; do
   max_cpu_percentage=100.0
 
   just_cpu_user=$(echo $cpus | awk '{print $2}' | tr ',' '.')
-  cpu_user=$(echo $cpus | awk '{print $2}' | sed 's/$/%/')
+  cpu_user=$(echo $cpus | awk '{print $2}')
   usage_cpu_user=$(echo "scale=0; (${just_cpu_user}+0.5)/1" | bc)
   unusage_cpu_user=$((100 - usage_cpu_user))
 
   just_cpu_system=$(echo $cpus | awk '{print $4}' | tr ',' '.')
-  cpu_system=$(echo $cpus | awk '{print $4}' | sed 's/$/%/')
+  cpu_system=$(echo $cpus | awk '{print $4}')
   usage_cpu_system=$(echo "scale=0; (${just_cpu_system}+0.5)/1" | bc)
   unusage_cpu_system=$((100 - usage_cpu_system))
 
