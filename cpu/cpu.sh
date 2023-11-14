@@ -104,11 +104,11 @@ while true; do
     \"cpu_si\": \"$cpu_software_i\", 
     \"cpu_steal\": \"$cpu_steal\" 
   }"
-  printf '%s\n' "$json_stats"
+  # printf '%s\n' "$json_stats"
 
   # Send data to kinesis
-  response=$(timeout 1s aws kinesis put-record --stream-name "$stream_name" --partition-key "$date_time" --data "$json_stats" 2>&1)
-  
+  response=$(timeout 1s aws kinesis put-record --stream-name "$stream_name" --partition-key "$date_time" --data "$json_stats" --cli-binary-format raw-in-base64-out 2>&1)
+  echo $response
   # Check if response contains "SequenceNumber" string
   if echo "$response" | grep -q "SequenceNumber"; then
     # Response contains "SequenceNumber" string - Ok
